@@ -89,8 +89,8 @@ def generate_synthetic_traffic(n_samples=5000):
     return df, protocols
 
 # --- HEADER ---
-st.markdown('<div class="main-header">Network Traffic Workload Characterization</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-header">Analytical & Statistical Techniques for Performance Analysis</div>', text_align="center", unsafe_allow_html=True)
+st.markdown('<div class="main-header" style="text-align: center;">Network Traffic Workload Characterization</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-header" style="text-align: center;">Analytical & Statistical Techniques for Performance Analysis</div>', unsafe_allow_html=True)
 
 # --- SIDEBAR & CONFIGURATION ---
 st.sidebar.header("Configuration")

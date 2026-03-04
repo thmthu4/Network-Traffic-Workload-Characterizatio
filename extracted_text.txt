@@ -1,0 +1,211 @@
+--- CONTENT OF Network Traffic Workload Characterization – Full Report.docx ---
+Network Traffic Workload Characterization Using Statistical and Analytical Techniques
+1. Introduction
+Modern computer networks generate a large amount of traffic due to web browsing, file transfers, cloud services, and real‑time applications. Understanding how this traffic behaves is essential for network design, performance optimization, and security monitoring. This understanding is achieved through workload characterization, which involves measuring, analyzing, and modeling system or network activities.
+This project applies the concepts from Chapter 6 of The Art of Computer Systems Performance Analysis to characterize network traffic workloads. Real network packet data is captured and analyzed using statistical techniques such as averaging, dispersion, histograms, Principal Component Analysis (PCA), Markov models, and clustering. The goal is to gain insight into traffic patterns and behavior using real‑world data.
+2. Objectives
+The objectives of this project are: - To capture real network traffic and extract meaningful workload parameters - To apply workload characterization techniques including averaging and dispersion - To visualize traffic behavior using single‑parameter and multiparameter histograms - To reduce workload complexity using Principal Component Analysis (PCA) - To model protocol behavior using Markov models - To group similar traffic patterns using clustering techniques
+3. Terminology and Concepts
+3.1 Workload
+A workload is the set of network activities observed during a specific time interval. In this project, the workload consists of packet‑level network traffic captured from a Linux system.
+3.2 Workload Parameters
+Workload parameters are measurable characteristics of the workload. The parameters used in this project include: - Packet size (bytes) - Inter‑arrival time between packets - Protocol type (TCP, UDP, ICMP, DNS) - Packet rate (packets per second) - Flow duration
+3.3 Observation Interval
+The observation interval is the time period during which traffic data is collected. In this project, traffic was captured for a fixed duration to ensure consistency in analysis.
+3.4 Trace‑Driven Analysis
+Trace‑driven analysis refers to using real captured data (packet traces) instead of synthetic workloads. This method provides realistic and accurate results.
+4. Experimental Setup
+4.1 Hardware and Software Environment
+Operating System: Linux (Ubuntu/Lubuntu)
+Traffic Capture Tools: Wireshark / tcpdump
+Data Analysis Tools: Python, pandas, numpy, matplotlib, scikit‑learn
+4.2 Traffic Generation
+Network traffic was generated through normal user activities such as: - Web browsing - File downloads - Ping and DNS queries - Package updates
+The captured traffic was saved in PCAP format and later processed for analysis.
+5. Workload Characterization Techniques
+5.1 Averaging
+Averaging provides a measure of typical workload behavior. The following averages were calculated: - Mean packet size - Mean packet arrival rate - Mean inter‑arrival time
+These values represent the overall intensity and size characteristics of the network traffic.
+5.2 Dispersion
+Dispersion measures how much the workload varies over time. Variance and standard deviation were computed for packet sizes and inter‑arrival times. High dispersion indicates bursty traffic, while low dispersion suggests smooth and steady traffic behavior.
+6. Histogram Analysis
+6.1 Single‑Parameter Histogram
+Single‑parameter histograms were used to visualize the distribution of individual workload parameters such as packet size and inter‑arrival time. The packet size histogram showed a high frequency of small packets, representing control traffic, and fewer large packets associated with data transfers.
+6.2 Multi‑Parameter Histogram
+Multi‑parameter histograms were created to analyze relationships between two parameters, such as packet size versus inter‑arrival time and packet size versus protocol type. These plots revealed correlations between traffic size and timing characteristics.
+7. Principal Component Analysis (PCA)
+As the number of workload parameters increases, analysis becomes complex. PCA was applied to reduce dimensionality while preserving most of the variance in the data. The results showed that a small number of principal components captured the majority of traffic behavior, indicating that only a few parameters dominate network workload characteristics.
+8. Markov Model for Protocol Behavior
+Network traffic exhibits sequential behavior where protocols follow certain patterns. A Markov model was constructed by treating each protocol as a state and measuring transition probabilities between protocols. The transition matrix revealed common sequences such as DNS requests followed by TCP connections and HTTP data transfer.
+This model helps in understanding normal protocol behavior and can be extended to detect anomalies.
+9. Clustering Analysis
+Clustering techniques were applied to group traffic samples based on workload features such as mean packet size, packet rate, and variance. The clustering results identified distinct traffic patterns, including normal browsing traffic and high‑intensity data transfer traffic. Such classification is useful for performance monitoring and intrusion detection.
+10. Results and Discussion
+The analysis demonstrated that network traffic is highly variable and bursty. Although average values provide a general overview, dispersion and histograms revealed significant variations. PCA highlighted the most influential parameters, while Markov models and clustering provided behavioral insights beyond simple statistics.
+These results show that workload characterization techniques are effective for understanding complex network behavior.
+11. Conclusion
+This project successfully applied workload characterization techniques from Chapter 6 of The Art of Computer Systems Performance Analysis to real network traffic data. By combining statistical measures, visualization techniques, dimensionality reduction, and behavioral modeling, the project provided a comprehensive understanding of network workload behavior. The techniques used are valuable for network performance optimization, capacity planning, and security monitoring.
+12. Future Work
+Future extensions of this project may include: - Long‑term traffic analysis - Real‑time workload monitoring - Integration with intrusion detection systems - Comparison between normal and attack traffic workloads
+13. References
+Raj Jain, The Art of Computer Systems Performance Analysis
+Wireshark Documentation
+Python Data Analysis Libraries Documentation
+
+==================================================
+
+--- CONTENT OF Network_Traffic_Workload_Characterization_–_Presentation_Slides.docx ---
+Network Traffic Workload Characterization
+Using Statistical and Analytical Techniques
+Slide 1: Title Slide
+Project Title: Network Traffic Workload CharacterizationCourse: Computer Systems Performance AnalysisChapter: Chapter 6 – Workload Characterization TechniquesStudent Name: Zywel ThuraUniversity / Department: Computer Technology / Cybersecurity
+Slide 2: Introduction
+Modern networks generate large and complex traffic
+Understanding traffic behavior is essential for:
+Performance optimization
+Capacity planning
+Network security
+This project analyzes real network traffic using workload characterization techniques
+Slide 3: Project Objectives
+Capture real network traffic data
+Identify important workload parameters
+Apply statistical workload characterization techniques
+Visualize traffic behavior using graphs
+Model and classify traffic patterns
+Slide 4: What is Workload Characterization?
+Workload: Set of activities observed in a system or network
+Workload characterization:
+Measuring
+Analyzing
+Modeling workload behavior
+Helps understand how a system is used, not just how it performs
+Slide 5: Terminology (Chapter 6)
+Workload: Network traffic captured during observation
+Parameter: Measurable characteristic (packet size, time)
+Observation Interval: Time period of data capture
+Trace-driven analysis: Using real captured traffic
+Slide 6: Experimental Setup
+Operating System: Linux (Ubuntu / Lubuntu)
+Traffic Capture Tools:
+Wireshark / tcpdump
+Analysis Tools:
+Python
+pandas, numpy, matplotlib
+Traffic generated by normal user activities
+Slide 7: Workload Parameters Used
+Packet size (bytes)
+Inter-arrival time
+Protocol type (TCP, UDP, ICMP, DNS)
+Packet rate (packets per second)
+Flow duration
+Slide 8: Averaging Technique
+Calculates typical behavior of traffic
+Metrics used:
+Mean packet size
+Mean packet rate
+Mean inter-arrival time
+Provides an overall view of network load
+Slide 9: Dispersion Technique
+Measures variation in traffic behavior
+Metrics used:
+Variance
+Standard deviation
+High dispersion → bursty traffic
+Low dispersion → smooth traffic
+Slide 10: Single-Parameter Histogram
+Shows distribution of one parameter
+Example:
+Packet size histogram
+Observations:
+Many small packets → control traffic
+Few large packets → data transfer
+Slide 11: Multi-Parameter Histogram
+Combines two workload parameters
+Examples:
+Packet size vs inter-arrival time
+Packet size vs protocol
+Helps identify relationships between parameters
+Slide 12: Principal Component Analysis (PCA)
+Problem: Too many workload parameters
+PCA reduces dimensions while preserving information
+Identifies most influential parameters
+Simplifies workload analysis
+Slide 13: Markov Model
+Models protocol behavior as states
+Each protocol = one state
+Transitions show probability of moving between protocols
+Helps understand normal traffic sequences
+Slide 14: Clustering Analysis
+Groups traffic into similar patterns
+Uses features such as:
+Mean packet size
+Packet rate
+Variance
+Identifies:
+Normal traffic
+High-intensity traffic
+Useful for anomaly detection
+Slide 15: Results & Discussion
+Network traffic is highly variable and bursty
+Averages alone are not sufficient
+Histograms and dispersion reveal real behavior
+PCA highlights key workload parameters
+Markov models and clustering show traffic patterns
+Slide 16: Conclusion
+Successfully applied Chapter 6 techniques
+Workload characterization provides deep insight into network behavior
+Techniques are useful for:
+Performance analysis
+Network design
+Security monitoring
+Slide 17: Future Work
+Long-term traffic analysis
+Real-time monitoring
+Compare normal vs attack traffic
+Integration with intrusion detection systems
+Slide 18: Thank You
+Questions?
+
+==================================================
+
+--- CONTENT OF Network_Traffic_Workload_Speaker_Notes_Burmese.docx ---
+Network Traffic Workload CharacterizationSpeaker Notes (Burmese)
+Slide 1: Title
+ဒီ Project က Chapter 6 – Workload Characterization Techniques ကို အခြေခံပြီး Network Traffic ကို လက်တွေ့ data သုံးပြီး ခွဲခြမ်းစိတ်ဖြာထားတာ ဖြစ်ပါတယ်။ Network performance နဲ့ security အတွက် traffic behavior ကို နားလည်ဖို့ ရည်ရွယ်ပါတယ်။
+Slide 2: Introduction
+ယနေ့ခေတ် Network တွေမှာ web browsing, file download, cloud service စတာတွေကြောင့် traffic များလာပါတယ်။ Traffic ကို နားမလည်ရင် performance ပြဿနာနဲ့ security issue တွေ ဖြစ်နိုင်ပါတယ်။
+Slide 3: Objectives
+ဒီ project ရဲ့ အဓိကရည်ရွယ်ချက်က traffic ကို capture လုပ်ပြီး workload parameters တွေကို Chapter 6 ထဲက technique တွေနဲ့ analyze လုပ်ခြင်း ဖြစ်ပါတယ်။
+Slide 4: Workload Characterization
+Workload ဆိုတာ system သို့မဟုတ် network မှာ ဖြစ်ပေါ်နေတဲ့ activity အစုအဝေး ဖြစ်ပါတယ်။ Characterization ဆိုတာ workload ကို တိုင်းတာ၊ ခွဲခြမ်းစိတ်ဖြာ၊ model လုပ်ခြင်းကို ဆိုလိုပါတယ်။
+Slide 5: Terminology
+Workload, parameter, observation interval ဆိုတဲ့ term တွေက Chapter 6 မှာ အရေးကြီးပါတယ်။ ဒီ project မှာ real traffic trace ကို အသုံးပြုထားပါတယ်။
+Slide 6: Experimental Setup
+Linux system တစ်ခုမှာ Wireshark သို့မဟုတ် tcpdump ကို သုံးပြီး traffic ကို capture လုပ်ပါတယ်။ ပြီးတော့ Python နဲ့ analysis လုပ်ပါတယ်။
+Slide 7: Workload Parameters
+Packet size, inter-arrival time, protocol type စတဲ့ parameter တွေကို workload feature အဖြစ် အသုံးပြုပါတယ်။
+Slide 8: Averaging
+Averaging က traffic ရဲ့ ပုံမှန်အခြေအနေကို သိစေပါတယ်။ Mean packet size နဲ့ mean packet rate ကိုတွက်ပါတယ်။
+Slide 9: Dispersion
+Average တစ်ခုတည်းနဲ့ မလုံလောက်ပါဘူး။ Variance နဲ့ standard deviation ကိုသုံးပြီး traffic bursty ဖြစ်မဖြစ် ခွဲခြားပါတယ်။
+Slide 10: Single Histogram
+Single-parameter histogram က parameter တစ်ခုရဲ့ distribution ကို ပြပါတယ်။ Packet size histogram က traffic အမျိုးအစားကို နားလည်စေပါတယ်။
+Slide 11: Multi Histogram
+Parameter နှစ်ခုကို အတူတူကြည့်ပြီး relationship ကို သိနိုင်ပါတယ်။ ဥပမာ packet size နဲ့ inter-arrival time ပါ။
+Slide 12: PCA
+PCA က parameter များစွာကို အရေးကြီးဆုံး component အနည်းငယ်အဖြစ် လျှော့ချပေးပါတယ်။
+Slide 13: Markov Model
+Protocol transition ကို state အနေနဲ့ model လုပ်ပါတယ်။ Normal traffic behavior ကို နားလည်နိုင်ပါတယ်။
+Slide 14: Clustering
+Traffic pattern မတူတာတွေကို group ခွဲပါတယ်။ Normal နဲ့ abnormal traffic ခွဲနိုင်ပါတယ်။
+Slide 15: Results
+Traffic က bursty ဖြစ်ပြီး average တစ်ခုတည်းနဲ့ မလုံလောက်ကြောင်း တွေ့ရပါတယ်။
+Slide 16: Conclusion
+Chapter 6 technique တွေကို လက်တွေ့ network traffic မှာ အောင်မြင်စွာ အသုံးချနိုင်ခဲ့ပါတယ်။
+Slide 17: Future Work
+နောက်ထပ် attack traffic နဲ့ compare လုပ်နိုင်ပြီး IDS နဲ့ integrate လုပ်နိုင်ပါတယ်။
+Slide 18: End
+ဒီ project က network performance နဲ့ security analysis အတွက် အသုံးဝင်ပါတယ်။
+
+==================================================
+
